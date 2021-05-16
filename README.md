@@ -1,4 +1,4 @@
-﻿### Automatic-gmail-sender
+﻿## Automatic-gmail-sender
 Api built using node.js,nodemail and gmail api
 ## About the project
 We can automatically send email via gmail api through nodemailer.
@@ -16,4 +16,17 @@ node index.js
  * **.env**:  All the necessary credentials
  
  ## Api endpoints
-  
+ 
+
+ ### POST /gmail/
+ Return a 200 status code showing result.
+
+**Post data**
+
+|          Name | Required |  Type   | Description                                                                                                                                                         |
+| -------------:|:--------:|:-------:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|     `subject` | required | string  | Subject of theemail whivh u need to send<br/><br/>   
+|    `message` | required | string  | Message of theemail which u need to send <br/><br/>               |
+|    `email` | required | string  | Email to which you send the message <br/><br/>               |
+    
+
