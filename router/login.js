@@ -7,6 +7,7 @@ const router = require("express").Router();
 router.get("/",(req,res)=>{
   res.redirect("/login")
 })
+
 router.get("/login", (req, res) => {
     if (req.cookies["session_cookie"]) {
       res.redirect("/gmail/");

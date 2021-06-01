@@ -4,6 +4,7 @@ const path = require("path");
 const checkauthenticated = require('./middleware');
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
+const PORT=process.env.PORT || 5000
 dotenv.config();
 const userrouter = require("./router/router");
 const loginrouter = require("./router/login");
@@ -24,6 +25,6 @@ app.use("/gmail",checkauthenticated, userrouter);
 app.get("*",(req,res)=>{
   res.send("404 Error")
 })
-app.listen(5000, () => {
+app.listen(PORT, () => {
   console.log("connected");
 });
