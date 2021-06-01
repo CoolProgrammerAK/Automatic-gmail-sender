@@ -26,5 +26,5 @@ app.get("*",(req,res)=>{
   res.send("404 Error")
 })
 app.listen(PORT, () => {
-  console.log("connected");
+  console.log("connect");
 });
