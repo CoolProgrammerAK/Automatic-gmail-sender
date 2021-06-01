@@ -17,9 +17,13 @@ app.set("view engine", "ejs");
 app.use("/static", express.static(path.join(__dirname + "/static")));
 app.use(cookieParser());
 
+
 app.use("/", loginrouter);
 app.use("/gmail",checkauthenticated, userrouter);
 
+app.get("*",(req,res)=>{
+  res.send("404 Error")
+})
 app.listen(5000, () => {
   console.log("connected");
 });

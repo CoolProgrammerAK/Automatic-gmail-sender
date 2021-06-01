@@ -3,6 +3,10 @@ const client = new OAuth2Client(process.env.Client_id);
 const checkauthenticated = require('../middleware');
 
 const router = require("express").Router();
+
+router.get("/",(req,res)=>{
+  redirect("/login")
+})
 router.get("/login", (req, res) => {
     if (req.cookies["session_cookie"]) {
       res.redirect("/gmail/");
