@@ -5,7 +5,7 @@ const checkauthenticated = require('../middleware');
 const router = require("express").Router();
 
 router.get("/",(req,res)=>{
-  redirect("/login")
+  res.redirect("/login")
 })
 router.get("/login", (req, res) => {
     if (req.cookies["session_cookie"]) {
