@@ -1,15 +1,25 @@
-const express=require('express')
-const app=express()
-const dotenv=require('dotenv')
-dotenv.config()
-const userrouter=require('./router/router')
+const express = require("express");
+const app = express();
+const path = require("path");
+const checkauthenticated = require('./middleware');
+const bodyParser = require("body-parser");
+const dotenv = require("dotenv");
+dotenv.config();
+const userrouter = require("./router/router");
+const loginrouter = require("./router/login");
+const cookieParser = require("cookie-parser");
 
+app.use(bodyParser.json());
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true, defer: true }));
 
-//All credientials information are saved in .env file
-app.use(express.json())
-app.use("/gmail",userrouter)
+app.set("view engine", "ejs");
+app.use("/static", express.static(path.join(__dirname + "/static")));
+app.use(cookieParser());
 
+app.use("/", loginrouter);
+app.use("/gmail",checkauthenticated, userrouter);
 
-app.listen(5000,()=>{
-    console.log("connected")
-})
+app.listen(5000, () => {
+  console.log("connected");
+});
