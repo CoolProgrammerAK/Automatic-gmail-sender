@@ -1,5 +1,5 @@
 ## Automatic-gmail-sender
-We can automatically send email with attachments via gmail api through nodemailer.
+We can automatically send email with attachments via gmail api through nodemailer with an google login system.
 
 ## About the project
 Built an automatic email sender using gmail api with node.js(ejs) and nodemailer.
@@ -24,7 +24,12 @@ node index.js
   
 ### Project Structure
  * **index.js** : Main project file, it has it initialize all the necessary files.
- * **router/router.js**:  It has it's logic to create routing system and the API services.
+ * **router/router.js**:  It has it's logic to create endpoints for sending an email.
+ * **router/login.js**:  It has it's logic to create endpoints for login.
+ * **/views**: It has different views for /login or /gmail/api route which is built using ejs.
+ * **middleware.js** : To check whether the user is loggin or not.
+ * **static/home.css** : Css files
  * **.env**:  All the necessary credentials
+ * **Procfile**: For heroku setup
 
 
