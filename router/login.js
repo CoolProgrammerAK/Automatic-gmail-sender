@@ -12,7 +12,7 @@ router.get("/login", (req, res) => {
     if (req.cookies["session_cookie"]) {
       res.redirect("/gmail/");
     }
-    res.render("login",{client:process.env.Client_id});
+    res.render("login",{clientId:process.env.Client_id});
   });
   
   
